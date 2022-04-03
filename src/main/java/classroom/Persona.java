@@ -2,29 +2,36 @@ package classroom;
 
 public class Persona {
 
-    final long cedula;
+    long cedula;
     String nombre;
     static int totalPersonas;
     
     static {
         totalPersonas = 0;
-        cedula = 3;
+        // Si se define en la parte superior un archivo tipo final.
+        // no se puede reescribir en el método static
+        //cedula = 3;
     }
 
+    // Sobre carga de constructores.
+    
     Persona(long cedula, String nombre) {
-        this.cedula = cedula;
+    	//Como la cédula es de tipo final, no se puede reescribir
+        //this.cedula = cedula;
         this.nombre = nombre;
         totalPersonas++;
     }
     
     Persona(String nombre, long cedula) {
-        this.cedula = cedula;
+    	//Como la cédula es de tipo final, no se puede reescribir
+        //this.cedula = cedula;
         this.nombre = nombre;
         totalPersonas++;
     }
 
     Persona(long cedula) {
-        this.cedula = cedula;
+    	//Como la cédula es de tipo final, no se puede reescribir
+        //this.cedula = cedula;
         this.nombre = "";
         totalPersonas++;
     }
@@ -32,6 +39,11 @@ public class Persona {
     Persona(String nombre) {
         this.nombre = "";
         totalPersonas++;
+        this.cedula = 1;
+    }
+    
+    Persona (){
+    	
     }
     
     long getCedula() {

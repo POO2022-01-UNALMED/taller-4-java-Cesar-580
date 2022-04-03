@@ -5,20 +5,26 @@ public class Grupo {
     Persona[] estudiantes;
     Persona profesor;
     Asignatura asignatura;
-    final int codigo = 0;
+    int codigo;
     String horario;
 
+ // Sobre carga de constructores.
     Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
         this.estudiantes = estudiantes;
         this.profesor = profesor;
         this.asignatura = asignatura;
+        //El código es de tipo final, por lo tanto no se puede reescribir
         this.codigo = codigo;
         this.horario = horario;
     }
 
     Grupo(int cantidadEstudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
-        Persona[] personas = new Persona[cantidadEstudiantes];
-        this(personas, profesor, asignatura, codigo, horario);
+    	// El this, siempre debe estar de primero en una sobre carga de métodos
+    	this(new Persona[cantidadEstudiantes], profesor, asignatura, codigo, horario);
+    	//Persona[] personas = new Persona[cantidadEstudiantes];
+        
+    	//Persona[] personas = new Persona[cantidadEstudiantes];
+        //this(personas, profesor, asignatura, codigo, horario);
     }
 
     Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura) {
